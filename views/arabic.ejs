@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <title><%= pageTitle %></title>
+</head>
+
+<body style="background-color:#c4d3f6;">
+    <header>
+        <div class="chup" style="background-color: #c4d3f6;">
+            <h1>Welcome To Bank of AbuDhabi </h1>
+        </div>
+    </header>
+    <div class="topnav" style="background-color: #c4d3f6; float:right;">
+        <a class="<%= path === '/' ? 'active' : '' %>" href="/">English</a>
+        <a  class="<%= path === '/arabic' ? 'active' : '' %>" href="/arabic">Arabic</a>
+    </div>
+
+    <main>
+        <% if (prods.length > 0) { %>
+        <div class="grid">
+
+            <!-- <table>
+                <thead>
+                    <td>Name</td>
+                    <td>Currency</td>
+                    <td>Phone Number</td>
+                </thead>
+                <% for (let product of prods) { %>
+                <tr>
+                    <td><%=product.name%></td>
+                    <td><%=product.currency%></td>
+                    <td><%=product.phoneNum%></td>
+                </tr>
+                <% } %>
+            </table> -->
+            <div class="limiter">
+                <div class="container-table100">
+                    <div class="wrap-table100">
+                            <div class="table">
+        
+                                <div class="row header">
+                                    <div class="cell">
+                                        Full Name
+                                    </div>
+                                    <div class="cell">
+                                        Currency
+                                    </div>
+                                    <div class="cell">
+                                        Phone Number
+                                    </div>
+                                </div>
+                                <% for (let product of prods) { %>
+                                    <div class="row">
+                                        <div class="cell" data-title="Full Name">
+                                            <%=product.name%>
+                                        </div>
+                                        <div class="cell" data-title="Currency">
+                                            <%=product.currency%>
+                                        </div>
+                                        <div class="cell" data-title="Phone Number">
+                                            <%=product.phoneNum%>
+                                        </div>
+                                    </div>
+                                <% } %>
+                    </div>  
+                </div>
+            </div>
+
+        </div>
+        <section class="pagination">
+            <% if(currPage !==1 && previousPage!==1) { %><a href="/arabic?page=1">1</a><% } %>
+            <% if(hasPrevious) { %>
+                <a href="/arabic?page=<%= previousPage %>"><%= previousPage %></a>
+                <% } %>
+            <a href="/arabic?page=<%= currPage %>" class="active"><%= currPage %></a>
+            
+            <% if(hasNextPage) { %>
+            <a href="/arabic?page=<%= nextPage %>"><%= nextPage %></a>
+            <% } %>
+
+            <% if(lastPage !== currPage && nextPage !==lastPage) { %>
+            <a href="/arabic?page=<%= lastPage %>"><%= lastPage %></a>
+            <% } %>
+        </section>
+        <% } else { %>
+        <h1>No Products Found!</h1>
+        <% } %>
+    </main>
+    <footer style="border: 2px black solid; padding: 20px; background-color: black;">
+        <p style="text-align: center; color: rgb(229, 233, 233);">A Project by Mohammad Yasin and Smile Gupta</p>
+    </footer>
+
+
+</body>
