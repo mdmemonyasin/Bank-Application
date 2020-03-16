@@ -5,7 +5,7 @@ const Client = require('../models/client');
 
 let total;
 
-const ITEMS_PER_PAGE = 5; 
+const ITEMS_PER_PAGE = 10; 
 
 exports.getEnglish = (req, res, next) => {
     const page = +req.query.page || 1;
